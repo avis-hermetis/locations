@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @place.name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @place.set %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @place.description %>
+</p>
+
+<p>
+  <strong>Adress:</strong>
+  <%= @place.adress %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @place.user_id %>
+</p>
+
+<p>
+  <strong>Coordinates: </strong>
+  <%= @place.latitude.to_s + " - " + @place.longitude.to_s %>
+</p>
+
+<div id="map" style="width: 340px; height:340px"></div>
+
+<script type="text/javascript">
+  var map;
+  var myCenter = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
+
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: myCenter,
+      zoom: 13
+    });
+    var marker = new google.maps.Marker({
+      position: myCenter,
+      map: map
+    });
+  }
+</script>
+
+<%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Back', places_path %>
