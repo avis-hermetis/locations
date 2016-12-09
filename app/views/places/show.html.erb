@@ -1,36 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
 
-<p>
-  <strong>Name:</strong>
-  <%= @place.name %>
-</p>
+  <div class="col-md-3">
+    <h3><%= @place.name %></h3>
 
-<p>
-  <strong>Type:</strong>
-  <%= @place.set %>
-</p>
+  <p>
+    <strong>Set: </strong>
+    <%= @place.set %>
+  </p>
+  <p>
+    <strong>Adress: </strong>
+    <%= @place.adress %><br>
+    <%= @place.latitude.to_s + ", " + @place.latitude.to_s %>
+  </p>
+  <p>
+    <strong>Description: </strong>
+    <%= @place.description %>
+  </p>
+  <div id="map" style="width: 240px; height:240px"></div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @place.description %>
-</p>
+  </div>
 
-<p>
-  <strong>Adress:</strong>
-  <%= @place.adress %>
-</p>
+  <div class="col-md-9">
+    <h3>Reviews</h3>
+  </div>
 
-<p>
-  <strong>User:</strong>
-  <%= @place.user_id %>
-</p>
+</div>
 
-<p>
-  <strong>Coordinates: </strong>
-  <%= @place.latitude.to_s + " - " + @place.longitude.to_s %>
-</p>
 
-<div id="map" style="width: 340px; height:340px"></div>
 
 <script type="text/javascript">
   var map;
@@ -48,5 +44,4 @@
   }
 </script>
 
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
+
